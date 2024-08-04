@@ -1,0 +1,243 @@
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  padding-top: 50px;
+  background-color: #fbfbfb;
+}
+
+/* Make sure to include Bootstrap CSS for navbar styling */
+.navbar {
+  background-color: #250451;
+  border: ;
+}
+
+p {
+  font-size: 30px;
+  color: white;
+  margin: 0; /* Remove default margins */
+}
+
+.navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-brand {
+  flex: 1;
+  text-align: center; /* Center the text in the brand */
+}
+
+.github-icon {
+  padding-right: 10px;
+  font-size: 24px;
+  color: #333;
+  transition: transform 0.1s, color 0.3s;
+}
+
+.github-icon-container:hover .github-icon {
+  transform: scale(1.2);
+  color: #3e6fb0; /* GitHub blue */
+}
+
+.github-icon-container:hover span {
+  color: #4078c0; /* GitHub blue */
+}
+
+.github-icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav {
+  margin: 0;
+}
+
+.navbar-nav .nav-item {
+  margin-left: auto; /* Push the nav items to the right */
+}
+
+.list-group,
+.btn {
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgba(160, 135, 231, 0.4);
+}
+
+.btn {
+  background-color: #bcddff;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: aliceblue;
+}
+
+.toggle-icon {
+  width: 60%;
+}
+
+.btn-toggle {
+  width: 45px;
+  height: 45px;
+  border-color: #bcddff;
+  padding-left: 0;
+}
+
+#addRandomForm .popover {
+  width: 20em;
+}
+
+.svg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.svg .nodeLine {
+  stroke: #000;
+  stroke-width: 2;
+}
+
+text {
+  text-anchor: middle;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #d9d9d9;
+}
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  background-color: transparent;
+  color: #d9d9d9;
+}
+
+#animationSpeed {
+  display: none;
+}
+
+#animationSpeedForm label {
+  margin-right: 2px;
+}
+
+#animationSpeedForm .slider-selection {
+  background: #d8d8d8;
+}
+
+.slider.slider-horizontal {
+  width: 205px;
+}
+
+@media screen and (min-width: 1000px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+  .row-offcanvas-left {
+    left: 385px;
+  }
+
+  .row-offcanvas-left .sidebar-offcanvas {
+    left: -385px;
+  }
+
+  .row-offcanvas-left.active {
+    left: 0;
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 370px;
+  }
+
+  #addNode {
+    width: 13em;
+  }
+
+  #searchForNode {
+    width: 11.6em;
+  }
+
+  #deleteNode {
+    width: 12em;
+  }
+
+  #addRandom {
+    width: 12em;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-left .sidebar-offcanvas {
+    left: -270px;
+  }
+
+  .row-offcanvas-left.active {
+    left: 270px;
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 250px;
+  }
+
+  .form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+
+  .form-inline .form-control {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  #addNode {
+    width: 4.8em;
+  }
+
+  #searchForNode {
+    width: 4.8em;
+    margin-top: -1.3em;
+    margin-left: 0.2em;
+  }
+
+  #deleteNode {
+    width: 3.75em;
+  }
+
+  #searchForNodeForm > div > label {
+    width: 5em;
+  }
+
+  #addRandom {
+    width: 5.15em;
+    margin-top: -1.8em;
+  }
+
+  #addRandomForm > div > label {
+    width: 10em;
+  }
+}
