@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hacker Welcome</title>
+    <style>
+      body {
+        background-color: #000;
+        color: #0f0;
+        font-family: "Courier New", Courier, monospace;
+        overflow: hidden;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+      #welcome-message {
+        font-size: 3rem;
+        color: #0f0;
+        text-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00, 0 0 35px #00ff00;
+        animation: neon 1.5s ease-in-out infinite alternate;
+        margin: 0;
+      }
+      @keyframes neon {
+        from {
+          text-shadow: 0 0 15px #00ff00;
+        }
+        to {
+          text-shadow: 0 0 25px #00ff00, 0 0 35px #00ff00;
+        }
+      }
+      .matrix {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        color: #0f0;
+        background: rgba(0, 0, 0, 0.9);
+      }
+      .warning {
+        font-size: 1.2rem;
+        color: red;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid red;
+        text-align: center;
+        margin-top: 1.5rem;
+        animation: blink 1s infinite;
+      }
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="welcome-message">Welcome</div>
+    <canvas class="matrix"></canvas>
+    <div class="warning">WARNING: Unauthorized access is prohibited.</div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get("username") || "Guest";
+        const welcomeMessage = document.getElementById("welcome-message");
+        welcomeMessage.innerText = `Welcome ${username}`;
+
+        // Matrix effect
+        const canvas = document.querySelector(".matrix");
+        const ctx = canvas.getContext("2d");
+
+        function resizeCanvas() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+
+        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+        const font_size = 15; // Increase font size for better visibility
+        const columns = canvas.width / font_size;
+        const drops = [];
+
+        for (let x = 0; x < columns; x++) drops[x] = 1;
+
+        function draw() {
+          ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Slightly transparent background for better visibility
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+          ctx.fillStyle = "#0f0";
+          ctx.font = font_size + "px arial";
+
+          for (let i = 0; i < drops.length; i++) {
+            const text = matrix[Math.floor(Math.random() * matrix.length)];
+            ctx.fillText(text, i * font_size, drops[i] * font_size);
+
+            if (drops[i] * font_size > canvas.height && Math.random() > 0.975)
+              drops[i] = 0;
+
+            drops[i]++;
+          }
+        }
+
+        setInterval(draw, 33);
+      });
+    </script>
+  </body>
+</html>
